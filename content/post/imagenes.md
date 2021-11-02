@@ -11,7 +11,7 @@ images:
 
 # propósito
 
-* el tratamiento de imágenes en este plantilla
+* el tratamiento de imágenes en este plantilla que ahora estoy modificando
 
 ## con HTML
 
