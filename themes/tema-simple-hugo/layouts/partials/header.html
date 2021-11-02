@@ -1,0 +1,38 @@
+<header>
+	<div id="header">
+	<!-- para subir desde el final de la pagina-->
+	<a name="arriba" class="arriba-link"></a>
+	<a href="/" style="float: left;" class="tooltip"><strong><i data-feather="home"></i></strong>
+		<span class="tooltiptext">Home</span>
+	&nbsp;&nbsp;·&nbsp;&nbsp;
+	</a>
+	<a href="/tags/" style="float: left;" class="tooltip"><strong><i data-feather="tag"></i></strong>
+		<span class="tooltiptext"> Etiquetas </span>
+		&nbsp;&nbsp;·&nbsp;&nbsp;
+	</a>
+	<a href="/calendario/" style="float: left;" class="tooltip"><strong><i data-feather="calendar"></i></strong>
+		<span class="tooltiptext"> Calendario </span>
+		&nbsp;&nbsp;·&nbsp;&nbsp;
+	</a>
+	<a href="/busqueda/busqueda" style="float: left;" class="tooltip"><strong><i data-feather="search"></i></strong>
+		<span class="tooltiptext"> Búsqueda </span>
+		&nbsp;&nbsp;·&nbsp;&nbsp;
+	</a>
+	{{ range $i, $e:= $.Site.Params.navigation }}
+  {{/*	{{ $e }} */}}
+		{{ if eq $i 0}}
+		{{else}}
+			&nbsp;&nbsp;·&nbsp;&nbsp;
+		{{end}}
+		{{ with $.Site.GetPage "page" . }}
+		{{/* {{  .  }} */}}
+			<a href="{{ lower .Permalink }}"><strong>{{ .Title }}</strong></a>
+		{{ end }}
+	{{ end }}
+	<div class="tooltip"> versión: {{ .Site.Data.sitioVersion.Version }}
+		<span class="tooltiptextversion"> fecha: {{ .Site.Data.sitioFechaCreacion.fechaCreacion }} </span>
+	</div>
+	&nbsp;&nbsp;·&nbsp;&nbsp;
+	<button type="button" class="btn btn-warning navbar-btn" id="botonLogout">Salir</button>
+</div>
+</header>

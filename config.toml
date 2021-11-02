@@ -1,0 +1,37 @@
+baseURL = ""
+contentdir = "content"
+layoutdir = "layouts"
+publishdir = "public"
+languageCode = "es"
+title = "tema-simple-hugo demo"
+theme = "tema-simple-hugo"
+enableGitInfo = true
+pluralizeListTitles = false
+enableEmoji = true
+DefaultContentLanguage = "es"
+metaDataFormat = "yaml"
+buildFuture = true
+themesDir = "themes"
+publishDir = "public"
+
+[params]
+navigation = [ "motivacion", "ejemploMenu", "graficoPesos", "casas" ]
+highlightStyle = "hybrid"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON" ]
+section = [ "HTML", "JSON" ]
+
+[permalinks]
+post = "/post/:filename"
+motivacion = "/motivacion/:filename"
+
+[taxonomies]
+tag = "tags"
+
+[markup.tableOfContents]
+endLevel = 6
+startLevel = 1
+
+[markup.goldmark.renderer]
+unsafe = true

@@ -1,0 +1,24 @@
+{{ define "main" }}
+{{ partial "breadcrumb.html" . }}
+{{ partial "toc.html" . }}
+<div class="content" id="content">
+	<h1>{{ .Title }} 
+		<aside>
+			{{ if .Params.tags }}
+				<i data-feather="tag"></i>
+					{{ range .Params.tags }}<a href="/tags/{{.}}/">/{{.}}</a>&nbsp;&nbsp;&nbsp;
+					{{end}}
+			{{end}}
+		</aside>
+	</h1>
+	{{ replace .Content "disabled class" "class" | safeHTML }}
+	{{ if (eq .Type "post") }}
+		<p><small><em>Escrito {{ .Date.Format "2 January 2006"}}. </em>
+		</small></p>
+		<p>
+		{{ if .PrevInSection }}<a href="{{ .PrevInSection.URL }}">← {{ .PrevInSection.Title }}</a>&nbsp;{{end}}
+		{{ if .NextInSection }}<a href="{{ .NextInSection.URL }}" style="float:right;">{{ .NextInSection.Title }} →</a>{{ end }}
+		</p>
+	{{ end }}
+
+{{ end }}

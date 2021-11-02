@@ -1,0 +1,16 @@
+<div class="breadcrumb">
+<aside>
+{{ template "breadcrumb" dict "currentPage" .Page "id" .UniqueID }}
+<!-- templates -->
+{{ define "breadcrumb" }}
+  {{ if .currentPage.Parent }}
+    {{ template "breadcrumb" dict "currentPage" .currentPage.Parent }}
+  {{ end }}
+    {{ if eq .id .currentPage.UniqueID }}
+      {{ .currentPage.Title }}
+    {{ else }}
+      <a href="{{ .currentPage.URL }}">{{ .currentPage.Title }}</a> / 
+    {{ end }} 
+{{ end }}
+</aside>
+</div>
